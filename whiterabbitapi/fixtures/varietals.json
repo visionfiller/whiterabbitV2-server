@@ -1,0 +1,31 @@
+[
+    {
+      "model": "whiterabbitapi.varietal",
+      "pk": 1,
+      "fields": {
+        "name": "Cabernet Franc",
+        "image": "https://www.brixandcolumns.com/wp-content/uploads/2018/05/cabernetfrancpost.jpg",
+        "wine_type": 1,
+        "description": "Along with Cabernet Sauvignon and Merlot, Cabernet Franc is part of the essential blending triad that makes up the majority of the Bordeaux blend (and Meritage) red wines produced in the United States. On its own, Cabernet Franc is a more tannic, earthy cousin to Cabernet Sauvignon. In warmer sites outside of Europe, its most distinctive attributes are its pure notes of violets and blueberry, and its ripe tannins often carry the scent of fresh roasted coffee. It is made (though rarely labeled) as a varietal in Chinon, Bourgueil, and Saumur-Champigny, where it is hard and tannic and can evoke an austere minerality. In Pomerol and Saint-Émilion it is featured in blends with Merlot, adding a spicy, pungent, sometimes minty note."
+      }
+    },
+    {
+      "model": "whiterabbitapi.varietal",
+      "pk": 2,
+      "fields": {
+        "name": "Cabernet Sauvignon",
+        "image": "https://www.grapemust.com/wp-content/uploads/2020/02/napa-valley-921467_1280-e1587261288450.jpg",
+        "wine_type": 1,
+        "description": "The primary component of great Bordeaux and the defining grape of the Napa Valley, Cabernet Sauvignon is grown all over the world, but rarely achieves greatness. It ripens late and can be quite weedy and even vegetal in cooler climate regions such as Chile. In Bordeaux and Tuscany it is almost always blended to soften its intensely astringent tannins. The Napa style is dense, purple-black, jammy and tasting of currants and black cherries. Thick and ripe, layered with expensive new oak scents and flavors, it has almost single-handedly created the phenomenon of the cult wineries. In Washington, the best Cabernet straddles the border between the ripeness of California versions and the nuanced herb, leaf, and olive flavors of great Bordeaux."
+      }
+    },
+    {
+      "model": "whiterabbitapi.varietal",
+      "pk": 3,
+      "fields": {
+        "name": "Gamay",
+        "image": "https://mag.sommtv.com/wp-content/uploads/2021/10/gamay_feature.jpg",
+        "wine_type": 1,
+        "description": "The grape of Beaujolais, Gamay is often made to be drunk quite young, and shows bright, tangy, fruit-driven flavors of strawberry, raspberry, and sweet cherries. When made by the method known as carbonic maceration, young Gamay has a slight effervescence and a distinct smell of bananas. Beaujolais Nouveau, released each year shortly after harvest, is the most famous example."
+      }
+    }]

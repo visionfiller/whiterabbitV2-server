@@ -1,0 +1,92 @@
+[
+    {
+        "model": "whiterabbitapi.region",
+        "pk": 1,
+        "fields": {
+            "location": "Bordeaux",
+            "geo_code_city": "Bordeaux",
+            "country": "France"
+        }
+    },
+    {
+        "model": "whiterabbitapi.region",
+        "pk": 2,
+        "fields": {
+            "location": "Burgundy",
+            "geo_code_city": "Lyon",
+            "country": "France"
+        }
+    },
+    {
+        "model": "whiterabbitapi.region",
+        "pk": 3,
+        "fields": {
+            "location": "Beaujolais",
+            "geo_code_city": "Lyon",
+            "country": "France"
+        }
+    },
+    {
+        "model": "whiterabbitapi.region",
+        "pk": 4,
+        "fields": {
+            "location": "Alsace",
+            "geo_code_city": "Strasbourg",
+            "country": "France"
+        }
+    },
+    {
+        "model": "whiterabbitapi.region",
+        "pk": 5,
+        "fields": {
+            "location": "Loire Valley",
+            "geo_code_city": "Tours",
+            "country": "France"
+        }
+    },
+    {
+        "model": "whiterabbitapi.region",
+        "pk": 6,
+        "fields": {
+            "location": "Rhone Valley",
+            "geo_code_city": "Lyon",
+            "country": "France"
+        }
+    },
+    {
+        "model": "whiterabbitapi.region",
+        "pk": 7,
+        "fields": {
+            "location": "Provence",
+            "geo_code_city": "Marseille",
+            "country": "France"
+        }
+    },
+    {
+        "model": "whiterabbitapi.region",
+        "pk": 8,
+        "fields": {
+            "location": "Languedoc-Roussillon",
+            "geo_code_city": "Toulouse",
+            "country": "France"
+        }
+    },
+    {
+        "model": "whiterabbitapi.region",
+        "pk": 9,
+        "fields": {
+            "location": "Corsica",
+            "geo_code_city": "Corsica",
+            "country": "France"
+        }
+    },
+    {
+        "model": "whiterabbitapi.region",
+        "pk": 10,
+        "fields": {
+            "location": "California",
+            "geo_code_city": "Napa",
+            "country": "United States"
+        }
+    }
+]
