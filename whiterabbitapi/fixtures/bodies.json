@@ -1,0 +1,45 @@
+[
+    {
+      "model": "whiterabbitapi.body",
+      "pk": 1,
+      "fields": {
+        "density": "full"
+      }
+    },
+    {
+      "model": "whiterabbitapi.body",
+      "pk": 2,
+      "fields": {
+        "density": "medium-full"
+      }
+    },
+    {
+      "model": "whiterabbitapi.body",
+      "pk": 3,
+      "fields": {
+        "density": "medium"
+      }
+    },
+    {
+      "model": "whiterabbitapi.body",
+      "pk": 4,
+      "fields": {
+        "density": "medium-light"
+      }
+    },
+    {
+      "model": "whiterabbitapi.body",
+      "pk": 5,
+      "fields": {
+        "density": "light"
+      }
+    },
+    {
+      "model": "whiterabbitapi.body",
+      "pk": 6,
+      "fields": {
+        "density": "very-light"
+      }
+    }
+  ]
+  

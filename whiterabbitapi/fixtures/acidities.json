@@ -1,0 +1,24 @@
+[
+    {
+      "model": "whiterabbitapi.acidity",
+      "pk": 1,
+      "fields": {
+        "style": "low acid"
+      }
+    },
+    {
+      "model": "whiterabbitapi.acidity",
+      "pk": 2,
+      "fields": {
+        "style": "medium acid"
+      }
+    },
+    {
+      "model": "whiterabbitapi.acidity",
+      "pk": 3,
+      "fields": {
+        "style": "high acid"
+      }
+    }
+  ]
+  

@@ -1,0 +1,58 @@
+[
+    {
+      "model": "whiterabbitapi.dryness",
+      "pk": 1,
+      "fields": {
+        "level": "dryest",
+        "tastes_like": "bold, savory finish"
+      }
+    },
+    {
+      "model": "whiterabbitapi.dryness",
+      "pk": 2,
+      "fields": {
+        "level": "dryer",
+        "tastes_like": "vegetables and herbs"
+      }
+    },
+    {
+      "model": "whiterabbitapi.dryness",
+      "pk": 3,
+      "fields": {
+        "level": "dry",
+        "tastes_like": "tart fruits and flowers"
+      }
+    },
+    {
+      "model": "whiterabbitapi.dryness",
+      "pk": 4,
+      "fields": {
+        "level": "off-dry",
+        "tastes_like": "ripe fruits and spices"
+      }
+    },
+    {
+      "model": "whiterabbitapi.dryness",
+      "pk": 5,
+      "fields": {
+        "level": "semi-sweet",
+        "tastes_like": "candied fruit and flowers"
+      }
+    },
+    {
+        "model": "whiterabbitapi.dryness",
+        "pk": 6,
+        "fields": {
+          "level": "sweet",
+          "tastes_like": "fruit jam and chocolate"
+        }
+      },
+      {
+        "model": "whiterabbitapi.dryness",
+        "pk": 7,
+        "fields": {
+          "level": "very-sweet",
+          "tastes_like": "figs, raisins, and dates"
+        }
+      }
+]

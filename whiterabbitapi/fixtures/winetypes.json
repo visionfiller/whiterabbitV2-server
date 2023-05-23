@@ -1,0 +1,30 @@
+[
+    {
+      "model": "whiterabbitapi.winetype",
+      "pk": 1,
+      "fields": {
+        "type": "red"
+      }
+    },
+    {
+      "model": "whiterabbitapi.winetype",
+      "pk": 2,
+      "fields": {
+        "type": "white"
+      }
+    },
+    {
+      "model": "whiterabbitapi.winetype",
+      "pk": 3,
+      "fields": {
+        "type": "rose"
+      }
+    },
+    {
+      "model": "whiterabbitapi.winetype",
+      "pk": 5,
+      "fields": {
+        "type": "sparkling"
+      }
+    }
+  ]
