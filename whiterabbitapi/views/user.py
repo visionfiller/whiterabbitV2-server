@@ -40,11 +40,24 @@ class UserView(ViewSet):
     #     customer= Customer.objects.get(pk=pk)
     #     customer.delete()
     #     return Response(None, status=status.HTTP_204_NO_CONTENT)  
+    def update(self, request, pk):
+            """Handle PUT requests for a game
 
+            Returns:
+                Response -- Empty body with 204 status code
+            """
+            user = User.objects.get(pk=pk)
+            user.first_name = request.data["first_name"]
+            user.last_name = request.data["last_name"]
+            user.set_password(request.data["password"])
+            user.username = request.data["username"]
+            user.save()
+
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
 class UserSerializer(serializers.ModelSerializer):
     """JSON serializer for game types
     """
     class Meta:
         model = User
-        fields = ('id', 'first_name', 'last_name', 'username', 'email')
+        fields = ('id', 'first_name', 'last_name', 'username', 'email', 'password')
         

@@ -47,10 +47,21 @@ class CustomerView(ViewSet):
         customer= Customer.objects.get(pk=pk)
         customer.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)  
+    def update(self, request, pk):
+            """Handle PUT requests for a game
+
+            Returns:
+                Response -- Empty body with 204 status code
+            """
+            customer = Customer.objects.get(user=pk)
+            customer.profile_picture = request.data["profile_picture"]
+            customer.save()
+
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
 class CreateCustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
-        fields = ['id', 'user', 'profile_picture','full_name']
+        fields = ['id', 'user', 'profile_picture']
 class CustomerFavoriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = VarietalRegion
