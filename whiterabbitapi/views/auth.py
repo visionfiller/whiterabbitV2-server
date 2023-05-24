@@ -71,7 +71,7 @@ def register_user(request):
         # Use the REST Framework's token generator on the new user account
         token = Token.objects.create(user=whiterabbit_user.user)
         # Return the token to the client
-        data = { 'auth_token': token.key,'valid': True,'user_id': whiterabbit_user.user,
+        data = { 'auth_token': token.key,'valid': True,'user_id': new_user.id,
             'is_staff': whiterabbit_user.user.is_staff}
         return Response(data)
     except Exception as ex:

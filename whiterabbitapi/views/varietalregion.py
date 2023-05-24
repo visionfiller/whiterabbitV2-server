@@ -18,8 +18,11 @@ class VarietalRegionView(ViewSet):
         """
         try:
             varietal_region = VarietalRegion.objects.get(pk=pk)
-            customer = Customer.objects.get(user=request.auth.user)
-            varietal_region.is_favorite = varietal_region in customer.favorites.all()
+            try:
+                customer = Customer.objects.get(user=request.auth.user)
+                varietal_region.is_favorite = varietal_region in customer.favorites.all()
+            except Customer.DoesNotExist as ex:
+                return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
             serializer = VarietalRegionSerializer(varietal_region)
             return Response(serializer.data)
         except VarietalRegion.DoesNotExist as ex:
