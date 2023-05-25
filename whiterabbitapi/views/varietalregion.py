@@ -4,7 +4,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework import serializers, status
-from whiterabbitapi.models import VarietalRegion, Customer
+from whiterabbitapi.models import VarietalRegion, Customer, Acidity, Dryness, Body
 
 
 class VarietalRegionView(ViewSet):
@@ -21,8 +21,10 @@ class VarietalRegionView(ViewSet):
             try:
                 customer = Customer.objects.get(user=request.auth.user)
                 varietal_region.is_favorite = varietal_region in customer.favorites.all()
-            except Customer.DoesNotExist as ex:
-                return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+            except Customer.DoesNotExist:
+                varietal_region = VarietalRegion.objects.get(pk=pk)
+                serializer = VarietalRegionSerializer(varietal_region)
+                return Response(serializer.data)
             serializer = VarietalRegionSerializer(varietal_region)
             return Response(serializer.data)
         except VarietalRegion.DoesNotExist as ex:
@@ -42,11 +44,23 @@ class VarietalRegionView(ViewSet):
             varietal_regions = varietal_regions.filter(varietal=varietal_id)
         if wine_type_id is not None:
             varietal_regions = varietal_regions.filter(varietal__wine_type=wine_type_id)
-        customer = Customer.objects.get(user=request.auth.user)
-        for varietal_region in varietal_regions:
+        try:
+            customer = Customer.objects.get(user=request.auth.user)
+            for varietal_region in varietal_regions:
              varietal_region.is_favorite = varietal_region in customer.favorites.all()
-        serializer = VarietalRegionSerializer(varietal_regions, many=True)
-        return Response(serializer.data)
+            serializer = VarietalRegionSerializer(varietal_regions, many=True)
+            return Response(serializer.data)
+        except Customer.DoesNotExist:
+            varietal_regions = VarietalRegion.objects.all()
+            varietal_id = request.query_params.get('varietal', None)
+            wine_type_id = request.query_params.get('wine_type', None)
+            if varietal_id is not None:
+                varietal_regions = varietal_regions.filter(varietal=varietal_id)
+            if wine_type_id is not None:
+                varietal_regions = varietal_regions.filter(varietal__wine_type=wine_type_id)
+            serializer = VarietalRegionSerializer(varietal_regions, many=True)
+            return Response(serializer.data)
+
     def create(self, request):
             """Handle POST operations
 
@@ -59,6 +73,22 @@ class VarietalRegionView(ViewSet):
            
            
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+    def update(self, request, pk):
+            """Handle PUT requests for a game
+
+            Returns:
+                Response -- Empty body with 204 status code
+            """
+            varietal_region = VarietalRegion.objects.get(pk=pk)
+            acidity = Acidity.objects.get(pk=request.data['acidity'])
+            dryness = Dryness.objects.get(pk=request.data['dryness'])
+            body = Body.objects.get(pk=request.data['body'])
+            varietal_region.acidity = acidity
+            varietal_region.dryness = dryness
+            varietal_region.body = body
+            varietal_region.save()
+
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
     def destroy(self, request, pk):
         """delete varietal region"""
         varietal_region = VarietalRegion.objects.get(pk=pk)
