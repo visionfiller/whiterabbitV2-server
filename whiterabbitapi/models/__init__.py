@@ -8,3 +8,4 @@ from .customer import Customer
 from .employee import Employee
 from .winetype import WineType
 from .favorite import Favorite
+from .message import Message

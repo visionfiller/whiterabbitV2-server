@@ -2,7 +2,12 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from whiterabbitapi.models import Customer, VarietalRegion
+from whiterabbitapi.models import Customer, VarietalRegion, Message
+from rest_framework.decorators import action
+from django.contrib.auth.models import User
+from datetime import datetime
+
+
 
 
 class CustomerView(ViewSet):
@@ -58,6 +63,22 @@ class CustomerView(ViewSet):
             customer.save()
 
             return Response(None, status=status.HTTP_204_NO_CONTENT)
+    @action(methods=['post'], detail=True)       
+    def message(self, request, pk):
+        user= User.objects.get(pk=request.auth.user.id)
+        receiver = Customer.objects.get(user=pk)
+        sender = Customer.objects.get(user=user.id)
+        
+        message = Message.objects.create(receiver=receiver, sender=sender, body=request.data['body'])
+        receiver.received_messages.add(message)
+        sender.sent_messages.add(message)
+        return Response({'message': 'Message Sent!'}, status=status.HTTP_201_CREATED)
+    @action(methods=['delete'], detail=True)
+    def deletemessage(self, request, pk):
+       
+        message = Message.objects.get(pk=request.data['id'])
+        message.delete()
+        return Response({'message': 'Message Deleted!'}, status=status.HTTP_204_NO_CONTENT)
 class CreateCustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
@@ -67,11 +88,17 @@ class CustomerFavoriteSerializer(serializers.ModelSerializer):
         model = VarietalRegion
         fields = ('id', 'varietal', 'region', 'body', 'dryness', 'acidity', 'is_favorite')
         depth=1
+class CustomerMessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Message
+        fields = ('id', 'sender', 'receiver', 'body', 'formatted_date')
 class CustomerSerializer(serializers.ModelSerializer):
     """JSON serializer for game types
     """
     favorites = CustomerFavoriteSerializer(many=True)
+    sent_messages = CustomerMessageSerializer(many=True)
+    received_messages = CustomerMessageSerializer(many=True)
     class Meta:
         model = Customer
-        fields = ('id', 'user', 'profile_picture', 'favorites', 'full_name')
+        fields = ('id', 'user', 'profile_picture', 'favorites','received_messages','sent_messages', 'full_name')
         
