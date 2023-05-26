@@ -9,3 +9,4 @@ from .employee import Employee
 from .winetype import WineType
 from .favorite import Favorite
 from .message import Message
+from .wine_bottle import WineBottle

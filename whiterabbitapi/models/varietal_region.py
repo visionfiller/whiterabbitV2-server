@@ -6,7 +6,7 @@ class VarietalRegion(models.Model):
     region = models.ForeignKey("Region",on_delete=models.CASCADE, related_name="varietal_regions")
     body =  models.ForeignKey("Body",on_delete=models.CASCADE)
     dryness =  models.ForeignKey("Dryness",on_delete=models.CASCADE)
-    acidity =  models.ForeignKey("acidity",on_delete=models.CASCADE)
+    acidity =  models.ForeignKey("Acidity",on_delete=models.CASCADE)
 
     @property
     def is_favorite(self):

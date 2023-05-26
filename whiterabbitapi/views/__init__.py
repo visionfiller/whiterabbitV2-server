@@ -9,3 +9,4 @@ from .wine_type import WineTypeView
 from .acidity import AcidityView
 from .body import BodyView
 from .dryness import DrynessView
+from .wine_bottle import WineBottleView
