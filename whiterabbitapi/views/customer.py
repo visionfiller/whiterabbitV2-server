@@ -5,9 +5,6 @@ from rest_framework import serializers, status
 from whiterabbitapi.models import Customer, VarietalRegion, Message
 from rest_framework.decorators import action
 from django.contrib.auth.models import User
-from datetime import datetime
-
-
 
 
 class CustomerView(ViewSet):
