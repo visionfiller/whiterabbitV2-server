@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>White Rabbit Reports</title>
+  </head>
+  <body>
+    <h1>Customer Favorites</h1>
+
+    {% for customer in customer_favorite_list %}
+        <h2>{{ customer.full_name }}</h2>
+        <ol>
+            {% for favorite in customer.favorites %}
+            <li>
+                Wine: {{ favorite.varietal_region }}
+            </li>
+            {% endfor %}
+        </ol>
+    {% endfor %}
+  </body>
+</html>

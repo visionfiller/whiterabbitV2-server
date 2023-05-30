@@ -1,7 +1,7 @@
 import json
 from rest_framework import status
 from rest_framework.test import APITestCase
-from whiterabbitapi.models import VarietalRegion, Favorite, Varietal, Region, Body, Acidity, Dryness, Customer
+from whiterabbitapi.models import Customer
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 

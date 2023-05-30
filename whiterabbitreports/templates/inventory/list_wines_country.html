@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>White Rabbit Reports</title>
+  </head>
+  <body>
+    <h1>Varietals by Country</h1>
+
+    {% for region in region_varietal_list %}
+        <h2>{{ region.country }}</h2>
+        <ol>
+            {% for wine in region.varietal_regions %}
+            <li>
+                <ul>
+               <li> Varietal: {{ wine.name }}</li>
+               <li>  City: {{wine.location}}</li>
+               </ul>
+              
+            </li>
+            {% endfor %}
+        </ol>
+    {% endfor %}
+  </body>
+</html>
